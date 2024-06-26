@@ -1,24 +1,38 @@
 # SimpleFCM
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/simple_fcm`. To experiment with that code, run `bin/console` for an interactive prompt.
+SimpleFCM is a minimalist client for Firebase Cloud Messaging to send Push
+Notifications.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add simple_fcm
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install simple_fcm
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Initialize a new client for talking to Firebase Cloud Messaging. Client.new
+# takes an optional parameter which is either the path to a service account
+# config file or the raw config JSON. Not passing a config or passing nil will
+# pull the configuration from environment variables.
+client = SimpleFCM::Client.new("path/to/service_account.json")
+
+# See https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send
+client.push({
+  message: {
+    token: device.token,
+    data: {
+      message: "Jinkies! Something happened",
+      id: snitch.id,
+    }
+  }
+})
+```
 
 ## Development
 
@@ -28,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/gaffneyc/simple_fcm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/gaffneyc/simple_fcm/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/deadmanssnitch/simple_fcm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/deadmanssnitch/simple_fcm/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -36,4 +50,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the SimpleFCM project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/gaffneyc/simple_fcm/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the SimpleFCM project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/deadmanssnitch/simple_fcm/blob/main/CODE_OF_CONDUCT.md).

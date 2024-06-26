@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "simple_fcm"
   spec.version = SimpleFCM::VERSION
   spec.authors = ["Chris Gaffney"]
-  spec.email = ["gaffneyc@gmail.com"]
+  spec.email = ["chris@collectiveidea.com"]
 
   spec.summary = "Firebase Cloud Messaging V1 API Client"
   spec.description = <<~DESCRIPTION
