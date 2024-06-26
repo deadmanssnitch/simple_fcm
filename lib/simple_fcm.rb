@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "simple_fcm/version"
+require "simple_fcm/version"
+require "simple_fcm/error"
+require "simple_fcm/client"
 
 module SimpleFCM
-  class Error < StandardError; end
-  # Your code goes here...
 end
